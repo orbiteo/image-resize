@@ -13,7 +13,7 @@ if($_FILES) {
             $filename = $targetfile;
             $percent = 0.5;
     
-            // Calcul des nouvelles dimensions
+            // Redimensionnement hauteur/largeur - conservation des proportion
             list($width, $height) = getimagesize($filename);
             $newwidth = $width * $percent;
             $newheight = $height * $percent;
@@ -26,7 +26,7 @@ if($_FILES) {
             imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     
             // Affichage
-            imagejpeg($thumb, '../images_returned/'.$_FILES['imageBase']['name']);
+            imagejpeg($thumb, '../images_returned/'.$_FILES['imageBase']['name'], 50); // 50 étant la compression
 
             //Image 
     
