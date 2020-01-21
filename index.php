@@ -15,12 +15,12 @@
         <!-- afficher en live le poids de l'image chargée -->
 
         <!-- choix 1 réduire le poids de l'image sans toucher les dimensions -->
-        <label for="">Vous souhaitez :</label><br>
+        <label for="typeModif">Vous souhaitez :</label><br>
         <input id="reduceWeight" type="radio" name="typeModif" value="1"> Réduire le poids de l'image<br>
             <div class="choixTaille">
                 <!-- choix du % de réduction -->
                 <label for="choixReduction">Selectionnez le pourcentage de réduction</label>
-                <select name="choixReduction" id="">
+                <select name="choixReduction">
                     <option value="0">10%</option>
                     <option value="1">20%</option>
                     <option value="2">30%</option>
@@ -44,10 +44,10 @@
                     <input id="largeur" type="radio" name="taille" value="2"> Largeur fixe<br>
                         
                         <div class="hauteurInput">
-                            <input type="text" name="hauteur" placeholder="500"> en px
+                            <input class="hauteurInput" type="text" name="hauteurInput" placeholder="500"> px
                         </div>
                         <div class="largeurInput">
-                            <input class="largeurInput" type="text" name="largeur" placeholder="300"> en px
+                            <input class="largeurInput" type="text" name="largeurInput" placeholder="300"> px
                         </div>      
                 </div>
 
@@ -56,8 +56,8 @@
 
                 <div class="choixHauteurEtLargeur">
                     <!-- Choix hauteur et largeur fixes -->
-                    <input type="text" name="largeur" placeholder="300"> en px<br>
-                    <input type="text" name="hauteur" placeholder="500"> en px<br>
+                    <input type="text" name="largeur" placeholder="300"> px<br>
+                    <input type="text" name="hauteur" placeholder="500"> px<br>
                 </div>
             </div>
         <input type="submit" value="TÉLÉCHARGER">
@@ -92,8 +92,7 @@
     showOrHide('#sansProportions', '.choixHauteurEtLargeur', '.choixHauteurOuLargeur');
     showOrHide('#hauteur', '.hauteurInput', '.largeurInput');
     showOrHide('#largeur', '.largeurInput', '.hauteurInput');
-
-    
+ 
     function readURL(input) { // Affiche l'image au chargement
         if (input.files && input.files[0]) {
             var reader = new FileReader();
