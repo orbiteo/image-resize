@@ -81,7 +81,7 @@
     // Afficher les questions supplémentaires suivant le bouton coché et vice versa
     //Vider les valeurs remplies lors de changement de choix
     function showOrHide(idClicked, classToShow, classToHide) {
-        $(idClicked).on( "click", function() {
+        $(idClicked).on( 'click', function() {
             $(classToHide).hide();
             $(classToShow).show();
         });
@@ -92,6 +92,19 @@
     showOrHide('#sansProportions', '.choixHauteurEtLargeur', '.choixHauteurOuLargeur');
     showOrHide('#hauteur', '.hauteurInput', '.largeurInput');
     showOrHide('#largeur', '.largeurInput', '.hauteurInput');
+
+    $('#hauteur').on('click', function() {
+        $('input[name="hauteur"]').val('');
+        $('input[name="largeur"]').val('');
+    });
+    $('#largeur').on('click', function() {
+        $('input[name="hauteur"]').val('');
+        $('input[name="largeur"]').val('');
+    });
+    $('#sansProportions').on('click', function() {
+        $('input[name="hauteurInput"]').val('');
+        $('input[name="largeurInput"]').val('');
+    });
  
     function readURL(input) { // Affiche l'image au chargement
         if (input.files && input.files[0]) {
